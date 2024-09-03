@@ -1,0 +1,12 @@
+{% extends 'main/Components/base.html' %}
+
+{% block title %}Create Category{% endblock %}
+
+{% block content %}
+<h2>Create a New Category</h2>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Create Category</button>
+</form>
+{% endblock %}

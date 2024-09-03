@@ -1,0 +1,21 @@
+{% extends 'main/Components/base.html' %}
+
+{% block title %}Courses by Level{% endblock %}
+
+{% block content %}
+<h2>Courses - Level: {{ courses.0.level }}</h2>
+<div class="row">
+    {% for course in courses %}
+    <div class="col-md-4">
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">{{ course.name }}</h5>
+                <p class="card-text">{{ course.description|truncatewords:20 }}</p>
+                <p class="card-text"><small class="text-muted">Starts: {{ course.start_date }} | Ends: {{ course.end_date }}</small></p>
+                <a href="{% url 'detail' course.id %}" class="btn btn-primary">View Details</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
